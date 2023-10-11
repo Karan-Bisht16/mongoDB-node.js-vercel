@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>MongoDB connectivity to Vercel via Node.js</h1>
+    <form action="/create" method="post">
+        <input name="no" type="number">
+        <input name="name" type="text">
+        <input name="author" type="text">
+        <input name="price" type="number">
+        <button type="submit">Create</button>
+    </form>
+    <button>Update</button>
+    <form action="/pop" method="post">
+        <input name="no" type="number">
+        <button type="submit">Pop</button>
+    </form>
+    <table>
+        <tr>
+            <th>S_no</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Price</th>
+        </tr>
+        <% data.forEach(book => { %>     
+            <tr>
+                <td><%= book.no %></td>
+                <td><%= book.name %></td>
+                <td><%= book.author %></td>
+                <td><%= book.price %></td>
+            </tr>
+        <% }); %>
+    </table>         
+</body>
+</html>
