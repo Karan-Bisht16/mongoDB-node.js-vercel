@@ -1,7 +1,6 @@
 const express = require('express');
-const dirname = require("path");
-const fileURLToPath = require("url");
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const path = require("path");
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 require('dotenv').config();
 
 const app = express();
@@ -12,7 +11,7 @@ app.use(express.urlencoded({extended: true}));
 
 // app.use(express.static(__dirname+'/public'));
 app.set('view engine', 'ejs');
-app.set('views', __dirname+'/views');
+app.set('views', path.join(__dirname,'/views'));
 
 const mongoose = require('mongoose');
 const connection = require('./connectMongo');
