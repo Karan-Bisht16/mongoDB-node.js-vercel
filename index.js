@@ -1,16 +1,18 @@
 const express = require('express');
+const dirname = require("path");
+const fileURLToPath = require("url");
+const __dirname = dirname(fileURLToPath(import.meta.url));
 require('dotenv').config();
 
 const app = express();
 const PORT = 1600;
 
-app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// connectDB();
-// const mongoose = require('mongoose')
-// const { Schema } = mongoose
+// app.use(express.static(__dirname+'/public'));
+app.set('view engine', 'ejs');
+app.set('views', __dirname+'/views');
 
 const mongoose = require('mongoose');
 const connection = require('./connectMongo');
